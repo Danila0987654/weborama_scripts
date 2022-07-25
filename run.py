@@ -17,10 +17,7 @@ d = open(f"{output_first}", 'w')
 writer = csv.writer(d)
 
 for row in reader:
-    if " " in row[1]:
-        has_spaces = True
-        spaces = count_spaces(row[1])
-    writer.writerow([row[0], row[1], row[2].replace(" ", ";"), row[3].replace(" ", ";"), row[4].replace(" ", ",")])
+    writer.writerow([row[0], row[1].replace(" ", ";"), row[2].replace(" ", ";"), row[3].replace(" ", ";"), row[4].replace(" ", ",")])
 
 if not has_spaces:
     bashCommand = f"/bin/bash count_uniq_time_without_spaces.sh {output_first} {inp_name}.data"
