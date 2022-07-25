@@ -1,6 +1,3 @@
-import csv
-
-
 def count_spaces(string):
     count = 0
     for i in string:
@@ -20,7 +17,8 @@ def create_command_with_spaces(spaces, output_first):
         else:
             command += f"\" \"${now}\" \"${next}"
         now += 1
-    command += "}\' > hello.data"
+    now += 1
+    command += "\",\"$%s}\' > hello.data" % now
 
     return command
 
